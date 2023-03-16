@@ -21,10 +21,8 @@ podTemplate(yaml: '''
           cd Chapter09/sample1
           curl -ik -H "Authorization: Bearer $(cat 
 /var/run/secrets/kubernetes.io/serviceaccount/token)"
-https://$KUBERNETES_SERVICE_HOST:$KUBERNETE_SERVICE_PORT/apis/apps/v1/namespaces/devops-tools/deploy
-ments -XPOST -H "Content-type: application/yaml" --data-binary @hazelcast.yaml
-curl -k -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" https://$KUBERNETES_SERVICE_HOST:$KUBERNETE_SERVICE_PORT/apis/apps/v1/namespaces/devops-tools/deploy
-ments -XPOST -H "Content-type: application/yaml" --data-binary @calculator.yaml
+https://$KUBERNETES_SERVICE_HOST:$KUBERNETE_SERVICE_PORT/apis/apps/v1/namespaces/devops-tools/deployments -XPOST -H "Content-type: application/yaml" --data-binary @hazelcast.yaml
+curl -k -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" https://$KUBERNETES_SERVICE_HOST:$KUBERNETE_SERVICE_PORT/apis/apps/v1/namespaces/devops-tools/deployments -XPOST -H "Content-type: application/yaml" --data-binary @calculator.yaml
                   ''' 
                   }
                 } 
