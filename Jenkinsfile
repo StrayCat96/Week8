@@ -18,7 +18,7 @@ podTemplate(yaml: '''
       container('centos') {
         stage('start calculator') { 
           sh '''
-          cd Chapter09/sample3
+          cd Chapter08/sample1
           curl -ik -H "Authorization: Bearer $(cat 
 /var/run/secrets/kubernetes.io/serviceaccount/token)"
 https://$KUBERNETES_SERVICE_HOST:$KUBERNETE_SERVICE_PORT/apis/apps/v1/namespaces/devops-tools/deployments -XPOST -H "Content-type: application/yaml" --data-binary @hazelcast.yaml
