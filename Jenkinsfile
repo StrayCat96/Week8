@@ -20,7 +20,7 @@ podTemplate(yaml: '''
         test $(curl calculator-service:8080/sum?a=6\\&b=2) -eq 3 && echo 'pass' || 'fail
         curl -ik -H "Authorization: Bearer $(cat 
         /var/run/secrets/kubernetes.io/serviceaccount/token)" 
-        https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/api/v1/namespaces/default/pods
+        https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/api/v1/namespaces/devops-tools/pods
                   ''' 
                   }
                 } 
