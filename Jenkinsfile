@@ -1,13 +1,14 @@
 podTemplate(yaml: ''' 
-  apiVersion: v1
-  kind: Pod spec:
-  containers:
-  - name: centos
-  image: centos command:
-  - sleep
-  args:
-  - 99d 
-  restartPolicy: Never
+    apiVersion: v1
+    kind: Pod 
+    spec:
+      containers:
+      - name: centos
+      image: centos command:
+      - sleep
+      args:
+      - 99d 
+    restartPolicy: Never
 ''') { 
   node(POD_LABEL) {
     stage('k8s') {
