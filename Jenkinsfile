@@ -14,7 +14,7 @@ podTemplate(yaml: '''
   node(POD_LABEL) {
     stage('k8s') {
       git
-'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
+'https://github.com/StrayCat96/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
       container('centos') {
         stage('start calculator') { 
           sh '''
