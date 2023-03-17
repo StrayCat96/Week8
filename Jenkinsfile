@@ -12,6 +12,14 @@ podTemplate(yaml: '''
       restartPolicy: Never
 ''') { 
   node(POD_LABEL) {
+  stage('Build a gradle project') {
+    sh '''
+    cd Chapter 09/sample1
+    chmod +x gradlew
+    ./gradlew build
+    mv ./build/libs/calculator-0.0.1-SNAPSHOT.jar /mnt
+    '''
+    }
     stage('k8s') {
       git
 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
@@ -27,6 +35,22 @@ podTemplate(yaml: '''
             }
           }
         } 
+        
+          stage('build and push container image') {
+    container('kaniko') {
+
+    stage('build and upload container image') {
+        sh '''
+        echo 'FROM openjdk:8-jre' > Dockerfile
+        echo 'COPY ./calculator-0.0.1-SNAPSHOT.jar app.jar' >> Dockerfile
+        echo 'ENTRYPOINT ["java", "-jar", "app.jar"]' >> Dockerfile
+        mv /mnt/calculator-0.0.1-SNAPSHOT.jar .
+        /kaniko/executor --context `pwd` --destination straycat96/divcalc:1.0
+        '''
+        }
+
+     }
+    }
              
       }         
     }
