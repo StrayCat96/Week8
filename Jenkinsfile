@@ -10,7 +10,7 @@ podTemplate(yaml: '''
         args:
         - 99d 
       restartPolicy: Never
-      - name: gradle
+       - name: gradle
         image: gradle:6.3-jdk14
         command:
         - sleep
