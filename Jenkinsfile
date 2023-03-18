@@ -13,9 +13,10 @@ podTemplate(yaml: '''
 ''') { 
   node(POD_LABEL) {
   stage('Build a gradle project') {
-      git
-'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
-    sh '''
+      git 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
+      container('gradle') {
+          stage('Build a gradle project') {
+      sh '''
     cd Chapter09/sample1
     chmod +x gradlew
     ./gradlew build
