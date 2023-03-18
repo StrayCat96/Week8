@@ -14,7 +14,7 @@ podTemplate(yaml: '''
   node(POD_LABEL) {
   stage('Build a gradle project') {
     sh '''
-    cd Chapter 09/sample1
+    cd Chapter09/sample1
     chmod +x gradlew
     ./gradlew build
     mv ./build/libs/calculator-0.0.1-SNAPSHOT.jar /mnt
