@@ -10,16 +10,15 @@ podTemplate(yaml: '''
         args:
         - 99d 
       restartPolicy: Never
-      -name: gradle
-       image: gradle:6.3-jdk14
-       command:
-       - sleep
-       args:
-       - 99d
-       volumeMounts:
-       - name: shared-storage
-         mountPath: /mnt
-         
+      - name: gradle
+        image: gradle:6.3-jdk14
+        command:
+        - sleep
+        args:
+        - 99d
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /mnt
       - name: kaniko
         image: gcr.io/kaniko-project/executor:debug
         command:
