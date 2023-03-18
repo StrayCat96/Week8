@@ -40,8 +40,6 @@ podTemplate(yaml: '''
         
           stage('build and push container image') {
     container('kaniko') {
-
-    stage('build and upload container image') {
         sh '''
         echo 'FROM openjdk:8-jre' > Dockerfile
         echo 'COPY ./calculator-0.0.1-SNAPSHOT.jar app.jar' >> Dockerfile
